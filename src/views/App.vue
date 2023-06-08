@@ -126,7 +126,7 @@ const appPages = [
     mdIcon: camera,
   }
 ];
-const labels = [ 'Elias', 'El Cochazo', 'Imanol'];
+const labels = [ 'Elias', 'Merino', 'Imanol'];
 
 const path = window.location.pathname.split('folder/')[1];
 if (path !== undefined) {
