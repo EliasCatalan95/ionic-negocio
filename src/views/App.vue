@@ -3,25 +3,19 @@
     <ion-split-pane content-id="main-content">
       <ion-menu content-id="main-content" type="overlay">
         <ion-content>
-          <ion-list id="inbox-list">
-            <div class="Nombre">
-				
-				<ion-item >
-					<ion-title class="ion-text-center">Cafeteria Cafe en la Nuve</ion-title>
-         
+
+          <ion-list id="Botones">
+        <div class="Nombre">
+			  	<ion-item >
+					<ion-title class="ion-text-center">Cafeteria Cafe en la Nuve</ion-title>        
 					</ion-item>
-
-        
-
 				</div>
            
         <div class="diseñoimg">
-				
 		    <ion-item >
 				<img class="centrar-imagen" src="../cafe-americano.png" width="100" height="100" alt="Imagen Cafe">
-			
 				</ion-item>
-			</div>
+			  </div>
           
             
 
@@ -31,7 +25,10 @@
                 <ion-label>{{ p.title }}</ion-label>
               </ion-item>
             </ion-menu-toggle>
+
+
           </ion-list>
+
 
           <ion-list id="labels-list">
             <ion-list-header>Equipo truchas</ion-list-header>
@@ -41,6 +38,8 @@
               <ion-label>{{ label }}</ion-label>
             </ion-item>
           </ion-list>
+
+
         </ion-content>
       </ion-menu>
       <ion-router-outlet id="main-content"></ion-router-outlet>
@@ -110,20 +109,20 @@ const selectedIndex = ref(0);
 const appPages = [
   {
     title: 'Infomacion',
-    url: '/folder/Inbox',
-    iosIcon: mailOutline,
+    url: '/Informacion',
+    iosIcon: information,
     mdIcon: information,
   },
   {
     title: 'Consultar Registros',
-    url: '/folder/Outbox',
-    iosIcon: paperPlaneOutline,
+    url: '/Registros',
+    iosIcon: documentAttach,
     mdIcon: document,
   },
   {
     title: 'Camara',
-    url: '/folder/Favorites',
-    iosIcon: heartOutline,
+    url: '/Camara',
+    iosIcon: camera,
     mdIcon: camera,
   }
 ];
@@ -137,7 +136,7 @@ if (path !== undefined) {
 
 <style scoped>
 ion-menu ion-content {
-  --background: var(--ion-item-background, var(--ion-background-color, #39ED19));
+  --background: var(--ion-item-background, var(--ion-background-color, #0000));
 }
 
 ion-menu.md ion-content {
@@ -176,7 +175,7 @@ ion-menu.md ion-list#labels-list ion-list-header {
 
   margin-bottom: 18px;
 
-  color: #E33185;
+  color: #3322ce;
 
   min-height: 26px;
 }

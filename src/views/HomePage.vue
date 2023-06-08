@@ -124,7 +124,7 @@ function iniciarSesionConGoogle() {
       console.log("Usuario inició sesión:", user);
 	  
 	 // window.location.href='http://localhost:8100/folder/Inbox';
-	// this.$router.push('/menu');
+	//this.$router.push('/About');
 	 //this.window.close();
     })
     .catch(function(error) {
