@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 //import App from './views/HomePage.vue'
-import App from './views/App.vue'
+import App from './App.vue'
+//import App from './views/Registros.vue'
 import router from './router';
 
 import { IonicVue } from '@ionic/vue';
@@ -46,7 +47,8 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+const appFB = firebase.initializeApp(firebaseConfig);
+const analytics = getAnalytics(appFB);
 //initializeApp(firebaseConfig);
 //const analytics = getAnalytics(App);
 
