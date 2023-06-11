@@ -76,6 +76,7 @@
 
 
 }
+
 </style>
   
 <script >
@@ -103,11 +104,11 @@ export default {
                 .then((result) => {
                     const displayName = result.user.displayName;
                     console.log('Nombre de usuario:', displayName);
-
+                    
       
+                
 
-
-                    this.$router.push('/Pestañas/Informacion');
+              this.$router.push('/Pestañas/Informacion');
                     this.isSignInCompleted = true; // Establecer la variable de estado como verdadera
                 })
                 .catch((error) => {
@@ -121,7 +122,11 @@ export default {
                 if (user && !this.isSignInCompleted) { // Verificar si el inicio de sesión ya se ha realizado
                     const displayName = user.displayName;
                     console.log('Nombre de usuario:', displayName);
-                    //      this.$router.push('/Pestañas/Informacion');
+              this.$router.push('/Pestañas/Informacion');
+            
+         
+            
+            
                 } else {
                     this.isSignInCompleted = false;
                 }

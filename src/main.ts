@@ -1,9 +1,10 @@
 import { createApp } from 'vue'
 //import App from './views/HomePage.vue'
 import App from './App.vue'
+import store from './store';
 //import App from './views/Registros.vue'
 import router from './router';
-
+import '@capacitor/camera';
 import { IonicVue } from '@ionic/vue';
 
 /* Core CSS required for Ionic components to work properly */
@@ -30,6 +31,7 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
+import 'firebase/compat/database';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -53,6 +55,7 @@ const analytics = getAnalytics(appFB);
 //const analytics = getAnalytics(App);
 
 const app = createApp(App)
+
   .use(IonicVue)
   .use(router);
   
