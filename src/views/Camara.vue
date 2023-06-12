@@ -1,6 +1,6 @@
 <template>
   <ion-page>
-
+ 
     <ion-content class="ion-padding">
       <ion-button @click="getPhoto">Capturar Foto</ion-button>
       <video ref="videoElement"></video>
