@@ -72,7 +72,7 @@
     align-items: center;
     height: 10vh;
   
-    -webkit-text-fill-color: white;
+    -webkit-text-fill-color: rgb(24, 23, 23);
 
 
 }
