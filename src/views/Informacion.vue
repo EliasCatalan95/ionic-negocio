@@ -56,7 +56,7 @@
 
 <script>
 // ...
-import { onAuthStateChanged, getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import { onAuthStateChanged, getAuth, signInWithPopup, GoogleAuthProvider,signOut } from 'firebase/auth';
 
 import { getDatabase, ref, set, push } from "firebase/database";
 export default {
@@ -109,7 +109,7 @@ push(dataRef, newData)
   .catch((error) => {
     console.error("Error al guardar los datos:", error);
   });
-  dataRef.updateChildren(newData);
+
     },
 
     cerrarSesion() {
