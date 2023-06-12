@@ -122,7 +122,7 @@ export default {
                 if (user && !this.isSignInCompleted) { // Verificar si el inicio de sesión ya se ha realizado
                     const displayName = user.displayName;
                     console.log('Nombre de usuario:', displayName);
-              this.$router.push('/Pestañas/Informacion');
+           this.$router.push('/Pestañas/Informacion');
             
          
             
