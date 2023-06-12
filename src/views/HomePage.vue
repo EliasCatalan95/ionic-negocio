@@ -12,10 +12,7 @@
        
         <div class="Nombre">
 
-            <ion-item>
-                <ion-title class="ion-text-center">Cafeteria Cafe en la Nuve</ion-title>
-
-            </ion-item>
+            
         </div>
         <div class="container">
 
@@ -60,20 +57,19 @@
 <style>
 .container {
     display: flex;
-    justify-content: center;
     align-items: center;
     height: 50vh;
    
 }
 
 .Nombre {
+    padding: 0;
+    margin: 0;
     display: flex;
     justify-content: center;
-    align-items: center;
     height: 10vh;
   
     -webkit-text-fill-color: rgb(24, 23, 23);
-
 
 }
 
