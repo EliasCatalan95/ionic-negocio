@@ -1,6 +1,6 @@
 <template>
   <ion-page>
-    
+  
     <div class="Nombre">
 
       <ion-item>
@@ -58,7 +58,7 @@
 // ...
 import { onAuthStateChanged, getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 
-import 'firebase/database';
+import { getDatabase, ref, set } from "firebase/database";
 export default {
 
   name: 'Informacion',
@@ -72,7 +72,7 @@ export default {
     };
   },
   methods: {
-
+    
     checkAuthState() {
       const auth = getAuth();
 
@@ -96,29 +96,33 @@ export default {
 
       console.log(numeroAleatorio);
 
-      // Obtener una referencia a la ubicación de los datos en Realtime Database
-      const databaseRef = firebase.database().ref('Nombres');
+      const database = getDatabase();
+const dataRef = ref(database, "Nombres");
 
-      // Leer los datos una vez
-      databaseRef.once('value')
-        .then((snapshot) => {
-          // Declarar un arreglo para almacenar los IDs
-          const ids = [];
+const clave = numeroAleatorio;
+const valor = this.nombre;
+set(dataRef, { [clave]: valor })
+  .then(() => {
+    console.log("Datos guardados correctamente");
+  })
+  .catch((error) => {
+    console.error("Error al guardar los datos:", error);
+  });
+    },registrar() {
 
-          // Iterar sobre cada elemento de la instantánea de datos
-          snapshot.forEach((childSnapshot) => {
-            // Obtener el ID del elemento y agregarlo al arreglo
-            const id = childSnapshot.key;
-            ids.push(id);
-          });
-
-          console.log(ids);  // Mostrar el arreglo de IDs
+      
+      const datos = {
+        id: this.id,
+        nombre: this.nombre
+      };
+      const personasRef = ref(db, 'Personas');
+      push(personasRef, datos)
+        .then(() => {
+          console.log('Registro exitoso');
         })
         .catch((error) => {
-          console.log(error);
+          console.error('Error al registrar:', error);
         });
-
-
     },
 
     cerrarSesion() {
