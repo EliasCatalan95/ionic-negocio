@@ -1,5 +1,5 @@
 <template>
-      
+        
   <div >
     <ul>
       <li v-for="item in data" :key="item.id">
@@ -29,12 +29,12 @@ export default {
         for (let key in dataSnapshot) {
           const item = {
             id: key,
-            
-           nombre: dataSnapshot.valor
+            nombre: dataSnapshot[key].Nombre
+           
           };
           dataArray.push(item);
         }
-       
+        
         data.value = dataArray;
       });
     });

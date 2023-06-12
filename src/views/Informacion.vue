@@ -58,7 +58,7 @@
 // ...
 import { onAuthStateChanged, getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 
-import { getDatabase, ref, set } from "firebase/database";
+import { getDatabase, ref, set, push } from "firebase/database";
 export default {
 
   name: 'Informacion',
@@ -101,28 +101,15 @@ const dataRef = ref(database, "Nombres");
 
 const clave = numeroAleatorio;
 const valor = this.nombre;
-set(dataRef, { [clave]: valor })
+const newData = { Nombre : valor };
+push(dataRef, newData)
   .then(() => {
     console.log("Datos guardados correctamente");
   })
   .catch((error) => {
     console.error("Error al guardar los datos:", error);
   });
-    },registrar() {
-
-      
-      const datos = {
-        id: this.id,
-        nombre: this.nombre
-      };
-      const personasRef = ref(db, 'Personas');
-      push(personasRef, datos)
-        .then(() => {
-          console.log('Registro exitoso');
-        })
-        .catch((error) => {
-          console.error('Error al registrar:', error);
-        });
+  dataRef.updateChildren(newData);
     },
 
     cerrarSesion() {
