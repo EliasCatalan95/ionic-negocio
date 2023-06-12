@@ -29,11 +29,12 @@ export default {
         for (let key in dataSnapshot) {
           const item = {
             id: key,
-            nombre: dataSnapshot[key].nombre,
+            nombre: dataSnapshot[key].Nombre
            
           };
           dataArray.push(item);
         }
+        
         data.value = dataArray;
       });
     });

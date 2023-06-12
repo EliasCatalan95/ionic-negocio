@@ -1,6 +1,6 @@
 <template>
   <ion-page>
-
+    
     <div class="Nombre">
 
       <ion-item>
@@ -61,9 +61,9 @@
 
 <script>
 // ...
-import { onAuthStateChanged, getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import { onAuthStateChanged, getAuth, signInWithPopup, GoogleAuthProvider,signOut } from 'firebase/auth';
 
-import 'firebase/database';
+import { getDatabase, ref, set, push } from "firebase/database";
 export default {
 
   name: 'Informacion',
@@ -77,7 +77,7 @@ export default {
     };
   },
   methods: {
-
+    
     checkAuthState() {
       const auth = getAuth();
 
@@ -101,28 +101,19 @@ export default {
 
       console.log(numeroAleatorio);
 
-      // Obtener una referencia a la ubicación de los datos en Realtime Database
-      const databaseRef = firebase.database().ref('Nombres');
+      const database = getDatabase();
+const dataRef = ref(database, "Nombres");
 
-      // Leer los datos una vez
-      databaseRef.once('value')
-        .then((snapshot) => {
-          // Declarar un arreglo para almacenar los IDs
-          const ids = [];
-
-          // Iterar sobre cada elemento de la instantánea de datos
-          snapshot.forEach((childSnapshot) => {
-            // Obtener el ID del elemento y agregarlo al arreglo
-            const id = childSnapshot.key;
-            ids.push(id);
-          });
-
-          console.log(ids);  // Mostrar el arreglo de IDs
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-
+const clave = numeroAleatorio;
+const valor = this.nombre;
+const newData = { Nombre : valor };
+push(dataRef, newData)
+  .then(() => {
+    console.log("Datos guardados correctamente");
+  })
+  .catch((error) => {
+    console.error("Error al guardar los datos:", error);
+  });
 
     },
 
