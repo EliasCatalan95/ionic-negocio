@@ -1,6 +1,6 @@
 <template>
   <ion-page>
-    
+
     <div class="Nombre">
 
       <ion-item>
@@ -26,14 +26,19 @@
       </ion-item>
     </div>
 
-    <ion-button shape="round" @click="GuardarInfo">Guardar Informacion</ion-button>
+    <div style="text-align: center;">
+      <ion-button shape="defaul" @click="GuardarInfo">Guardar Informacion</ion-button>
+
+    </div>
+
+
 
 
     <ion-button class="google-login-button" @click='cerrarSesion'>
       <img src="../cerrar sesion icon.png" alt="Google Icon" class="logout-icon">
       Cerrar sesión
     </ion-button>
- 
+
   </ion-page>
 </template>
 
