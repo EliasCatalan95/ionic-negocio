@@ -1,6 +1,6 @@
 <template>
   <ion-page>
-
+    
     <div class="Nombre">
 
       <ion-item>
@@ -33,7 +33,7 @@
       <img src="../cerrar sesion icon.png" alt="Google Icon" class="logout-icon">
       Cerrar sesión
     </ion-button>
-
+ 
   </ion-page>
 </template>
 
