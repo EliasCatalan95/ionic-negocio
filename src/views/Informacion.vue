@@ -29,16 +29,36 @@
     <ion-button shape="round" @click="GuardarInfo">Guardar Informacion</ion-button>
 
 
+    <ion-button class="google-login-button" @click='cerrarSesion'>
+      <img src="../cerrar sesion icon.png" alt="Google Icon" class="logout-icon">
+      Cerrar sesión
+    </ion-button>
+
   </ion-page>
 </template>
 
+<style>
+.google-login-button {
+  --background: red;
+  --color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
+.logout-icon {
+  width: 30px;
+  height: 20px;
+  margin-right: 30px;
+
+}
+</style>
 
 <script>
 // ...
 import { onAuthStateChanged, getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 
-import 'firebase/database'; 
+import 'firebase/database';
 export default {
 
   name: 'Informacion',
@@ -99,7 +119,23 @@ export default {
         });
 
 
+    },
+
+    cerrarSesion() {
+      console.log('Boton cerrar sesion');
+      const auth = getAuth();
+      signOut(auth)
+        .then(() => {
+          // La sesión se cerró exitosamente
+          this.$router.push('/HomePage');
+          console.log('Sesión cerrada correctamente');
+        })
+        .catch((error) => {
+          // Ocurrió un error al cerrar la sesión
+          console.log('Error al cerrar la sesión:', error);
+        });
     }
+
 
   },
 }

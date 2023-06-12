@@ -26,9 +26,9 @@
                 </ion-item>
               </ion-menu-toggle>
   
-  
+              
+
             </ion-list>
-  
   
             <ion-list id="labels-list">
               <ion-list-header>Equipo truchas</ion-list-header>
@@ -104,7 +104,7 @@
   import { receiveMessageOnPort } from 'worker_threads';
   import { RouterView, routerViewLocationKey } from 'vue-router';
   import { verify } from 'crypto';
-  
+
   const selectedIndex = ref(0);
   const appPages = [
     {
